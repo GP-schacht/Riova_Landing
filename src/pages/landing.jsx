@@ -1,6 +1,7 @@
 import Navbar from '../components/layout/navbar.jsx';
 import Footer from '../components/layout/footer.jsx';
 import Hero from '../sections/hero.jsx';
+import AboutPy from '../sections/about-py.jsx';
 
 
 export default function Landing() {
@@ -9,7 +10,7 @@ export default function Landing() {
       <Navbar />
       <main>
         <Hero />
-       
+        <AboutPy />
       </main>
       <Footer />
     </div>

@@ -2,12 +2,11 @@ import Container from '../ui/container.jsx';
 import Button from '../ui/button.jsx';
 
 const navItems = [
-  { label: 'Problema', href: '#problem' },
-  { label: 'Solución', href: '#solution' },
-  { label: 'Beneficios', href: '#benefits' },
-  { label: 'Cómo funciona', href: '#how-it-works' },
-  { label: 'Precios', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Vision', href: '#vision' },
+  { label: 'Mision', href: '#mision' },
+  { label: 'Impacto', href: '#impacto' },
+
 ];
 
 export default function Navbar() {
@@ -16,12 +15,8 @@ export default function Navbar() {
       <Container className="flex items-center justify-between h-16">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-            V
-          </div>
-          <span className="font-semibold text-gray-900">
-            Vilma<span className="text-blue-600">App</span>
-          </span>
+          <img src='src\assets\02 SIN FONDO\RIOVA LOGO-06.png' alt="Vilma Logo" className="h-48 w-auto" />
+          
         </a>
 
         {/* Navegación desktop */}
@@ -37,12 +32,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA principal */}
-        <div className="hidden md:block">
-          <Button as="a" href="#pricing">
-            Empezar ahora
-          </Button>
-        </div>
 
         {/* Hamburguesa (placeholder para mobile) */}
         <button className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-gray-200">

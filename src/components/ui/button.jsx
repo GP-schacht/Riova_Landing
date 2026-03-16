@@ -7,9 +7,9 @@ const baseClasses = `
 `;
 
 const variants = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700',
-  secondary: 'bg-gray-900 text-white hover:bg-gray-800',
-  outline: 'border border-blue-600 text-blue-600 hover:bg-blue-50',
+  primary: 'bg-lime-500 text-white hover:bg-lime-600',
+  secondary: 'bg-lime-400 text-white hover:bg-lime-500',
+  outline: 'border border-lime-500 text-lime-500 hover:bg-lime-100',
 };
 
 export default function Button({

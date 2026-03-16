@@ -5,75 +5,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -----------------------------------------------------
-   🎯 Estilos Globales Personalizados
-   -----------------------------------------------------*/
-
-/* 1. Correcciones y ajustes base */
-html, body {
-  @apply m-0 p-0 bg-gray-50 text-gray-900 antialiased;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* 2. Tipografía general */
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
-  @apply font-sans leading-relaxed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif;
+  background-color:  #e5e7eb ; /* gris/azul oscuro */
+  color: #0f172a;
 }
 
-/* 3. Títulos coherentes */
-h1 {
-  @apply text-3xl font-bold text-gray-900;
-}
-
-h2 {
-  @apply text-2xl font-semibold text-gray-800;
-}
-
-h3 {
-  @apply text-xl font-semibold text-gray-800;
-}
-
-/* 4. Estilo universal de enlaces */
-a {
-  @apply text-blue-600 hover:text-blue-800 transition-colors;
-}
-
-/* 5. Botones estándar */
-.btn {
-  @apply px-4 py-2 rounded-lg font-medium
-    bg-blue-600 text-white 
-    hover:bg-blue-700 
-    active:scale-95 
-    transition-all;
-}
-
-.btn-outline {
-  @apply px-4 py-2 rounded-lg font-medium border border-blue-600
-    text-blue-600 hover:bg-blue-50 
-    active:scale-95 
-    transition-all;
-}
-
-/* 6. Inputs y campos de formulario */
-.input {
-  @apply w-full px-3 py-2 rounded-md bg-white border border-gray-300
-    focus:border-blue-500 focus:ring focus:ring-blue-200 
-    outline-none transition-all;
-}
-
-/* 7. Contenedores */
-.container-page {
-  @apply max-w-7xl mx-auto px-4 md:px-8;
-}
-
-/* 8. Scrollbar estilizado (opcional, moderno) */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-200;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded-md hover:bg-gray-500 transition-colors;
+main {
+  padding: 1rem;
 }

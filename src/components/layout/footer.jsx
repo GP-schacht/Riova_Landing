@@ -13,7 +13,7 @@ export default function Footer() {
             Inicio
           </a>
           <a href="#pricing" className="hover:text-gray-800">
-            Precios
+           Integrantes
           </a>
           <a href="#faq" className="hover:text-gray-800">
             FAQ
