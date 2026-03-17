@@ -11,8 +11,8 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-100">
-      <Container className="flex items-center justify-between h-16">
+    <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-300" >
+      <Container className="flex items-center justify-between h-24 ">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2">
           <img src='src\assets\02 SIN FONDO\RIOVA LOGO-06.png' alt="Vilma Logo" className="h-48 w-auto" />

@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="text-center lg:text-center ">
          
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 mb-4 ">
-            Una frase que genere <span className="text-lime-500">impacto o defina el proyecto</span>
+            Una frase que genere <span className="text-teal-500">impacto o defina el proyecto</span>
           </h1>
           <p className="text-gray-600 mb-6">
            descripcion un poco mas detallada pero no lo suficiente para que invite a ver mas del proyecto .

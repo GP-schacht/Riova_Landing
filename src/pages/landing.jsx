@@ -2,7 +2,8 @@ import Navbar from '../components/layout/navbar.jsx';
 import Footer from '../components/layout/footer.jsx';
 import Hero from '../sections/hero.jsx';
 import AboutPy from '../sections/about-py.jsx';
-
+import Mision from '../sections/mision.jsx';
+import Vision from '../sections/vision.jsx';
 
 export default function Landing() {
   return (
@@ -11,7 +12,9 @@ export default function Landing() {
       <main>
         <Hero />
         <AboutPy />
-      </main>
+        <Mision />
+        <Vision/>
+      </main> 
       <Footer />
     </div>
   );
