@@ -14,31 +14,22 @@ export function useInView(options = {}) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsInView(true);
-
-            // Si queremos que solo se anime una vez:
-            if (options.once !== false) {
-              observer.unobserve(entry.target);
-            }
-          } else if (options.once === false) {
-            // Si queremos que se oculte al salir de la vista
-            setIsInView(false);
+          } else {
+            setIsInView(false); // 👉 oculta y permite que se reanime
           }
         });
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.2, // ~20% visible para disparar
+        threshold: 0.2,
         ...options,
       }
     );
 
     observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [options.current, options.threshold, options.root, options.rootMargin]);
+    return () => observer.disconnect();
+ }, [options.threshold, options.once, options.root]);
 
   return { ref, isInView };
 }

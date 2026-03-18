@@ -1,20 +1,26 @@
 // Container.jsx
-import { useInView } from '../../hooks/useInView';  
+import { useInView } from '../../hooks/useInView';
 
-const BaseClasses = 'max-w-[95%] sm:px-6 lg:px-8';
+const BaseClasses = 'max-w-[95%] content-center';
 
 const variants = {
   default: {
-    container: 'mx-auto',
-    animation: 'animate-fade-in-up',
+    container: 'mx-auto px-[15rem]',
+    in: 'animate-fade-in-up delay-300',
+    out: 'animate-fade-out-down',
+    none: '',
   },
   rounded1: {
-    container: 'mr-auto pl-[1.5rem] rounded-r-[1.5rem]',
-    animation: 'animate-slide-in-left',
+    container: 'mr-auto px-[15rem] rounded-r-[1.5rem]',
+    in: 'animate-slide-in-left delay-300',
+    out: 'animate-slide-out-left  ',
+    none: '',
   },
   rounded2: {
-    container: 'ml-auto pr-[1.5rem] rounded-l-[1.5rem]',
-    animation: 'animate-slide-in-right',
+    container: 'ml-auto px-[15rem] rounded-l-[1.5rem]',
+    in: 'animate-slide-in-right ',
+    out: 'animate-slide-out-right ',
+    none: '',
   },
 };
 
@@ -23,26 +29,23 @@ export default function Container({
   className = '',
   children,
   as: Component = 'div',
+  animate = false,
   ...props
 }) {
-  const { container, animation } = variants[variant] ?? variants.default;
+  const { container, in: animIn, out: animOut } =
+    variants[variant] ?? variants.default;
 
-  // Detecta si el componente está en viewport
   const { ref, isInView } = useInView({
     threshold: 0.2,
-    once: true, // cambiar a false si quieres que la animación se repita al entrar/salir
+    once: false, // 🔥 IMPORTANTE: permite re-animar cada vez que entra/sale
   });
 
-  // Antes de entrar en viewport: oculto pero ocupando espacio (sin layout shift)
-  // Cuando entra: aplica la animación + opacidad 100
-  const visibilityClasses = isInView
-    ? `opacity-100 ${animation}`
-    : 'opacity-0';
+  const animationClass = animate ? (isInView ? animIn : animOut) : '';
 
   return (
     <Component
-      ref={ref}
-      className={`${BaseClasses} ${container} ${visibilityClasses} ${className}`}
+      ref={animate ? ref : null}
+      className={`${BaseClasses} ${container} ${animationClass} ${className} ${animate && !isInView ? 'opacity-0' : ''} `}
       {...props}
     >
       {children}
