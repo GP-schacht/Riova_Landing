@@ -44,7 +44,7 @@ export default function Mision() {
                         className={`
                             transition-all duration-700 delay-150 ease-out
                             bg-[#3d5a3e]/50  rounded-lg border border-gray-300/50
-                            min-h-[280px] sm:min-h-[320px] xl:min-h-0 xl:h-full
+                            aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
                             ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
                         `}
                     />

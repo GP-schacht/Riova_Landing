@@ -41,7 +41,7 @@ export default function AboutPy() {
 
                     {/* Imagen — abajo en mobile, derecha en desktop */}
                     <div className={`flex justify-center items-center
-                        w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
+                        aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
                         ${isInView ? 'animate-slide-in-right' : 'animate-slide-out-right'}`}
                     >
                         <img
