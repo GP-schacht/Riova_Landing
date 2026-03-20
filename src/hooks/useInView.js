@@ -21,7 +21,7 @@ export function useInView(options = {}) {
       },
       {
         root: null,
-        rootMargin: '0px',
+        rootMargin: '-100px 0px',
         threshold: 0.2,
         ...options,
       }

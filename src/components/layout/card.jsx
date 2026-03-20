@@ -1,4 +1,5 @@
 // Card.jsx
+import Container from "../ui/container";
 export default function Card({
   title,
   description,
@@ -9,12 +10,10 @@ export default function Card({
   className = '',
 }) {
   return (
-    <article
+    <Container
+    variant="glassLigthCard"
       className={`
-        group font-sans bg-white dark:bg-neutral-900
-        border border-neutral-200 dark:border-neutral-700
-        rounded-xl overflow-hidden
-        transition-transform duration-200 ease-out
+        overflow-hidden
         hover:-translate-y-1
         ${className}
       `}
@@ -25,6 +24,7 @@ export default function Card({
           <img
             src={imageSrc}
             alt={title}
+            loading="lazy"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
@@ -69,6 +69,6 @@ export default function Card({
           </div>
         )}
       </div>
-    </article>
+    </Container>
   );
 }
