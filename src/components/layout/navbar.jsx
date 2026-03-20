@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Container from '../ui/container.jsx';
-import Button from '../ui/button.jsx';
+import card1Img from '../../assets/02 SIN FONDO/RIOVA LOGO-06.png';
 
 const navItems = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2">
           <img
-            src="src/assets/02 SIN FONDO/RIOVA LOGO-06.png"
+            src={card1Img}
             alt="Riova Logo"
             className="h-32 sm:h-48 w-auto"
           />
