@@ -17,7 +17,7 @@ export default function Cards() {
     const { ref: viewRef, isInView: inView } = useInView({ threshold: 0.3, once: true });
 
     return (
-        <section id="impacto" className="relative mb-20">
+        <section id="impacto" className="relative mb-21">
 
             <div ref={viewRef}>
                 <Container variant="default"
