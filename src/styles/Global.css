@@ -21,8 +21,13 @@ body,
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif;
-  background-color:  #ffffff ; /* gris/azul oscuro */
+ font-family: 'Montserrat', system-ui, sans-serif;
+ 
+background-color: #afddc0;
+
+
+
+ /* gris/azul oscuro */
   color: #0f172a;
 }
 

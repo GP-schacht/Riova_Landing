@@ -13,18 +13,18 @@ export default function AboutPy() {
 
     return (
         <section id="nosotros">
-            <Container variant='rounded1' className="bg-[#3B5287] py-16 md:py-20">
+            <Container variant='rounded1' className=" py-16 md:py-20 translate-y-[-2rem]">
 
                 <div ref={ref} className='grid grid-cols-1 xl:grid-cols-2 gap-12 items-center'>
 
                     {/* Texto — arriba en mobile, izquierda en desktop */}
                     <div className={`flex flex-col justify-center items-start gap-6 
-                        ${isInView ? 'animate-slide-in-left' : 'opacity-0'}`}
+                        ${isInView ? 'animate-slide-in-left' : ' animate-slide-out-left'}`}
                     >
-                        <h1 className="text-5xl sm:text-6xl xl:text-8xl text-white font-bold leading-tight">
-                            ¿Qué es <span className="text-lime-300">Riova</span>?
+                        <h1 className="text-5xl sm:text-6xl xl:text-8xl text-[#313d32] font-bold leading-tight">
+                            ¿Qué es <span className="text-[#C9D755]">Riova</span>?
                         </h1>
-                        <p className='text-white/90 text-base sm:text-lg leading-relaxed'>
+                        <p className='text-[#313d32] text-base sm:text-lg leading-relaxed'>
                             Python es un lenguaje de programación de alto nivel, interpretado
                             y de propósito general. Es conocido por su sintaxis clara y legible,
                             lo que lo hace ideal para principiantes y expertos alike.
@@ -42,7 +42,7 @@ export default function AboutPy() {
                     {/* Imagen — abajo en mobile, derecha en desktop */}
                     <div className={`flex justify-center items-center
                         w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
-                        ${isInView ? 'animate-slide-in-right' : 'opacity-0'}`}
+                        ${isInView ? 'animate-slide-in-right' : 'animate-slide-out-right'}`}
                     >
                         <img
                             src={card3Img}

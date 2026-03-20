@@ -1,46 +1,34 @@
-
 // Mision.jsx
 import Container from "../components/ui/container";
 import { useInView } from '../hooks/useInView';
 
 export default function Mision() {
     const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3, once: true });
-    const { ref: textRef, isInView: textInView } = useInView({ threshold: 0.3, once: true });
+    const { ref: imgRef, isInView: imgInView } = useInView({ threshold: 0.3, once: true });
 
     return (
-        <section id="mision" className="my-20">
+        <section id="mision" className="mt-20 relative">
 
-<Container variant="rounded2" className="py-20 bg-[#94B445] h-[60vh] ">  {/* crema orgánico */}
+            {/* Fondo verde — decorativo, posicionado absolute */}
+           
 
-</Container>
-
-            <Container variant="glassLigth" className=" py-20 -mt-[34rem] h-[60vh]">  {/* crema orgánico */}
+            <Container variant="rounded2" className="py-20 md:py-[15rem]  ">
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
-                    {/* Título */}
+
+                    {/* Título + texto */}
                     <div
                         ref={titleRef}
                         className={`
-                        transition-all duration-700 ease-out
-                            ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}'}
-                    `}
+                            flex flex-col gap-6       
+                            ${titleInView ? 'animate-fade-in-up' : 'animate-fade-out-down'}
+                        `}
                     >
-                        <h2 className="xl:text-8xl text-5xl font-bold text-[#2c3e2d]  text-center leading-tight">
+                        <h2 className="text-5xl xl:text-6xl font-bold text-[#2c3e2d] leading-tight">
                             Nuestra{' '}
-                            <br /><span className="text-[#3d5a3e]">Misión</span>
+                            <span className="text-[#3d5a3e]">Misión</span>
                         </h2>
-                    </div>
-
-                    {/* Texto */}
-                    <div
-                        ref={textRef}
-                        className={`
-                            text-center
-                        transition-all duration-700 delay-150 ease-out
-                        ${textInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-                    `}
-                    >
-                        <p className="text-[#313d32] text-lg leading-relaxed">
+                        <p className="text-[#313d32] text-base sm:text-lg leading-relaxed">
                             En Riova, nuestra misión es revolucionar la forma en que las personas
                             interactúan con la tecnología. Nos esforzamos por crear soluciones
                             innovadoras y accesibles que empoderen a nuestros usuarios para alcanzar
@@ -49,11 +37,19 @@ export default function Mision() {
                             incansablemente para hacer esa visión una realidad.
                         </p>
                     </div>
+
+                    {/* Card derecha */}
+                    <div
+                        ref={imgRef}
+                        className={`
+                            transition-all duration-700 delay-150 ease-out
+                            bg-[#3d5a3e]/50  rounded-lg border border-gray-300/50
+                            min-h-[280px] sm:min-h-[320px] xl:min-h-0 xl:h-full
+                            ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+                        `}
+                    />
+
                 </div>
-
-
-
-
             </Container>
 
         </section>

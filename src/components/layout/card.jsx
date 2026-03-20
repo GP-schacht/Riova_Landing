@@ -1,5 +1,6 @@
 // Card.jsx
 import Container from "../ui/container";
+
 export default function Card({
   title,
   description,
@@ -11,15 +12,17 @@ export default function Card({
 }) {
   return (
     <Container
-    variant="glassLigthCard"
+      variant="glassLigthCard"
       className={`
-        overflow-hidden
+        group overflow-hidden
+        transition-transform duration-300
         hover:-translate-y-1
+        pb-[1rem]
         ${className}
       `}
     >
       {/* Imagen */}
-      <div className="w-full h-40 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+      <div className="  w-full aspect-[4/3] overflow-hidden bg-neutral-100 dark:bg-neutral-800">
         {imageSrc ? (
           <img
             src={imageSrc}
@@ -28,14 +31,14 @@ export default function Card({
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-neutral-300">
-            {/* placeholder icon */}
+          <div className="w-full h-full flex items-center justify-center text-neutral-300 text-4xl">
+            ◻
           </div>
         )}
       </div>
 
       {/* Cuerpo */}
-      <div className="p-4 flex flex-col gap-2">
+      <div className="p-[2rem] flex flex-col gap-2">
         {badge && (
           <span className="self-start text-xs font-medium px-2 py-1 rounded-full bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
             {badge}
