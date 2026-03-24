@@ -13,7 +13,7 @@ export default function AboutPy() {
 
     return (
         <section id="nosotros">
-            <Container variant='rounded1' className=" py-16 md:py-20 translate-y-[-2rem]">
+            <Container variant='rounded1' className=" py-16 md:py-20 translate-y-[-2rem] MY-[5rem]">
 
                 <div ref={ref} className='grid grid-cols-1 xl:grid-cols-2 gap-12 items-center'>
 
@@ -21,13 +21,16 @@ export default function AboutPy() {
                     <div className={`flex flex-col justify-center items-start gap-6 
                         ${isInView ? 'animate-slide-in-left' : ' animate-slide-out-left'}`}
                     >
-                        <h1 className="text-5xl sm:text-6xl xl:text-8xl text-[#313d32] font-bold leading-tight">
-                            ¿Qué es <span className="text-[#C9D755]">Riova</span>?
+                        <h1 className="text-5xl  sm:text-6xl xl:text-8xl text-[#313d32] font-extrabold leading-tight">
+                            ¿QUIENES <span className="text-[#C9D755]">SOMOS?</span>?
                         </h1>
-                        <p className='text-[#313d32] text-base sm:text-lg leading-relaxed'>
-                            Python es un lenguaje de programación de alto nivel, interpretado
-                            y de propósito general. Es conocido por su sintaxis clara y legible,
-                            lo que lo hace ideal para principiantes y expertos alike.
+                        <p className='text-[#313d32] text-base sm:text-lg leading-relaxed text-justify'>
+                            Somos un grupo de 10 jovenes de la 7.ª edición del Laboratorio 
+                            Latinoamericano de Acción Ciudadana, donde encontramos la necesidad 
+                            de actuar frente a los residuos que llegan a nuestros ríos.
+                             Así nace RIOVA, una iniciativa que busca mejorar la gestión de 
+                             residuos en comunidades ribereñas, a través de la concientización, 
+                             la psicoeducación ambiental y la participación comunitaria.
                         </p>
                         <div className='flex gap-4 mt-2'>
                             <Button as="a" href="#pricing" variant='terciary'>

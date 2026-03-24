@@ -12,7 +12,7 @@ export default function Mision() {
             {/* Fondo verde — decorativo, posicionado absolute */}
            
 
-            <Container variant="rounded2" className="py-20 md:py-[15rem]  ">
+            <Container variant="rounded2" className="py-10 md:py-[5rem] my-[5rem]  ">
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
 
@@ -26,7 +26,7 @@ export default function Mision() {
                     >
                         <h2 className="text-5xl xl:text-6xl font-bold text-[#2c3e2d] leading-tight">
                             Nuestra{' '}
-                            <span className="text-[#3d5a3e]">Misión</span>
+                            <span className="text-[#C9D755]">Misión</span>
                         </h2>
                         <p className="text-[#313d32] text-base sm:text-lg leading-relaxed">
                             En Riova, nuestra misión es revolucionar la forma en que las personas

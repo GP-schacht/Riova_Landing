@@ -5,6 +5,7 @@ import AboutPy from '../sections/about-py.jsx';
 import Mision from '../sections/mision.jsx';
 import Vision from '../sections/vision.jsx';
 import Cards from '../sections/cards.jsx';
+import BandaSection from '../sections/banda.jsx';
 
 export default function Landing() {
   return (
@@ -19,6 +20,7 @@ export default function Landing() {
         <Mision />
         <Vision/>
         <Cards/>
+        <BandaSection />
       </main> 
       <Footer />
     </div>

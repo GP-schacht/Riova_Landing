@@ -12,7 +12,7 @@ export default function Mision() {
             {/* Fondo azul — decorativo, posicionado absolute */}
             
 
-            <Container variant="rounded1" className="py-16 md:py-[15rem] ">
+            <Container variant="rounded1" className="py-16 md:py-[5rem] my-[5rem] ">
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
 
@@ -24,11 +24,11 @@ export default function Mision() {
                             ${titleInView ? 'animate-fade-in-up' : 'animate-fade-out-down'}
                         `}
                     >
-                        <h2 className="text-5xl xl:text-6xl font-bold text-[#] leading-tight">
+                        <h2 className="text-5xl xl:text-6xl font-bold text-[#19233a] leading-tight">
                             Nuestra{' '}
-                            <span className="text-[#19233a]">Vision</span>
+                            <span className="text-[#5CA8A1]">Vision</span>
                         </h2>
-                        <p className="text-[##19233a] text-base sm:text-lg leading-relaxed">
+                        <p className="text-[#19233a] text-base sm:text-lg leading-relaxed">
                             En Riova, nuestra misión es revolucionar la forma en que las personas
                             interactúan con la tecnología. Nos esforzamos por crear soluciones
                             innovadoras y accesibles que empoderen a nuestros usuarios para alcanzar
@@ -43,7 +43,7 @@ export default function Mision() {
                         ref={imgRef}
                         className={`
                             transition-all duration-700 delay-150 ease-out
-                            bg-[#19233a]/50 backdrop-blur-sm rounded-lg border border-gray-300/50
+                             rounded-lg border border-gray-300/50
                             aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
                             ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
                         `}

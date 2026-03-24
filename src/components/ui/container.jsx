@@ -11,13 +11,13 @@ const variants = {
     none: '',
   },
   rounded1: {
-    container: 'mr-auto px-6 sm:px-12 md:px-24 lg:px-36 xl:px-[10rem] 2xl:px-[15rem] rounded-r-[1.5rem] bg-white/30 backdrop-blur-sm border border-gray-300',
+    container: 'mr-auto px-6 sm:px-12 md:px-24 lg:px-36 xl:px-[10rem] 2xl:px-[7rem] rounded-r-[1.5rem] bg-white/30 backdrop-blur-sm border border-gray-300',
     in: 'animate-slide-in-left delay-300',
     out: 'animate-slide-out-left',
     none: '',
   },
   rounded2: {
-    container: 'ml-auto px-6 sm:px-12 md:px-24 lg:px-36 xl:px-[10rem] 2xl:px-[15rem] rounded-l-[1.5rem] bg-white/30 backdrop-blur-sm border border-gray-300',
+    container: 'ml-auto px-6 sm:px-12 md:px-24 lg:px-36 xl:px-[10rem] 2xl:px-[7rem] rounded-l-[1.5rem] bg-white/30 backdrop-blur-sm border border-gray-300',
     in: 'animate-slide-in-right',
     out: 'animate-slide-out-right',
     none: '',
