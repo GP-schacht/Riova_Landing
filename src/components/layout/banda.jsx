@@ -7,7 +7,6 @@ import { useRef, useEffect, useState } from "react";
  * @param {string[]}  items      - Array de frases/textos a mostrar
  * @param {number}    speed      - Píxeles por segundo (default: 50)
  * @param {number}    direction  - 1 = izquierda, -1 = derecha (default: 1)
- * @param {string}    separator  - Separador entre items (default: "★")
  * @param {string}    className  - Clases Tailwind para el wrapper de la banda
  * @param {string}    itemClass  - Clases Tailwind para cada item de texto
  * @param {string}    sepClass   - Clases Tailwind para el separador
@@ -17,9 +16,8 @@ export default function MarqueeBand({
   items = [],
   speed = 50,
   direction = 1,
-  separator = "★",
-  className = "py-3 bg-[#C9D755] border-y border-gray-500",
-  itemClass = "text-zinc-100 text-sm font-bold uppercase tracking-widest",
+  className = "py-3",
+  itemClass = "text-[#5CA8A1] text-md font-bold uppercase tracking-widest",
   sepClass = "text-amber-400 text-lg",
   pauseOnHover = true,
 }) {
@@ -37,7 +35,6 @@ export default function MarqueeBand({
   // Intercalar items con separadores
   const interleaved = items.flatMap((item, i) => [
     { type: "item", value: item, key: `item-${i}` },
-    { type: "sep", value: separator, key: `sep-${i}` },
   ]);
 
   const animStyle = {

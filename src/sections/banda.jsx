@@ -3,8 +3,8 @@ import Banda from "../components/layout/banda";
 
 export default function BandaSection() {
     const frases = [   
-        "Ejemplo de frase", 
-        "Ejemplo de segunda frase" 
+        "lorrem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
     ];
 
     return (

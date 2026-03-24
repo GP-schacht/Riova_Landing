@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'Monserrat';
-  src: url('public/Montserrat-VariableFont_wght.ttf') format('truetype');
+  src: url('/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 html,
 body,
@@ -26,7 +26,7 @@ body,
 body {
  font-family: 'Monserrat';
  
-background-color: #d7dad1;
+background-color: #fffdf8;
 
 
 
