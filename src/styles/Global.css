@@ -1,6 +1,4 @@
-/* -----------------------------------------------------
-   📌 Inclusión obligatoria de Tailwind
-   -----------------------------------------------------*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +13,7 @@
 
 @font-face {
   font-family: 'Monserrat';
-  src: url(font/Montserrat-VariableFont_wght.ttf) format('truetype');
+  src: url('font/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 html,
 body,
