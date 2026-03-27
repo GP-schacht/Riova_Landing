@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import Container from '../ui/container.jsx';
 import card1Img from '../../assets/02 SIN FONDO/RIOVA LOGO-06.png';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Vision',   href: '#vision'   },
-  { label: 'Mision',   href: '#mision'   },
-  { label: 'Impacto',  href: '#impacto'  },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Pilares',   href: '/pilares'   },
+  { label: 'Objetivos',   href: '/objetivos'   },
+  { label: 'Equipo',  href: '/equipo'  },
 ];
+
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
+const navegate = useNavigate();
   return (
     <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-300">
       <Container className="flex items-center justify-between h-20 sm:h-24">
 
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2">
+        <a onClick={() => navegate('/')}  className="flex items-center gap-2">
           <img
             src={card1Img}
             alt="Riova Logo"
@@ -30,7 +33,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <a 
               key={item.href}
-              href={item.href}
+              onClick={() => navegate (item.href)}
               className="text-gray-600 hover:text-gray-900 transition-colors">
               {item.label}
             </a>

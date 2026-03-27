@@ -4,6 +4,7 @@ import Button from '../components/ui/button.jsx';
 import Flechita from '../assets/03 SVG/flechita.svg';
 import card3Img from '../assets/02 SIN FONDO/RIOVA LOGO-07.png';
 import { useInView } from '../hooks/useInView';
+import { useNavigate } from 'react-router-dom';
 
 export default function AboutPy() {
     const { ref, isInView } = useInView({
@@ -11,9 +12,11 @@ export default function AboutPy() {
         once: true,
     });
 
+    const navigate = useNavigate();
+
     return (
         <section id="nosotros">
-            <Container variant='rounded1' className=" py-16 md:py-20 translate-y-[-2rem] MY-[5rem]">
+            <Container variant='rounded1' className=" py-16 md:py-20 translate-y-[-2rem] my-[5rem]">
 
                 <div ref={ref} className='grid grid-cols-1 xl:grid-cols-2 gap-12 items-center'>
 
@@ -33,7 +36,7 @@ export default function AboutPy() {
                              la psicoeducación ambiental y la participación comunitaria.
                         </p>
                         <div className='flex gap-4 mt-2'>
-                            <Button as="a" href="#pricing" variant='terciary'>
+                            <Button as="a"  variant='terciary' onClick={() => navigate('/nosotros')}>
                                 Conoce más
                                 <span className='w-6 h-6'>
                                     <img src={Flechita} alt="flechita" />
@@ -53,9 +56,9 @@ export default function AboutPy() {
                             className='w-full h-auto object-contain'
                         />
                     </div>
-
                 </div>
             </Container>
+
         </section>
     );
 }
