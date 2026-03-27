@@ -1,16 +1,16 @@
 import Gallery from "../components/layout/gallery";
 import Container from "../components/ui/container";
 import { useInView } from "../hooks/useInView";
-import img01 from "../assets/members/Alberto.jpg"
-import img02 from "../assets/members/Ian.jpg"
-import img03 from "../assets/members/Adriana.jpg"
-import img04 from "../assets/members/Vilma.jpg"
-import img05 from "../assets/members/Ashley.jpg"
-import img06 from "../assets/members/Gissel.jpg"
-import img07 from "../assets/members/Luis.jpg"
-import img08 from "../assets/members/Dayrelis.jpg"
-import img09 from "../assets/members/Avit.jpg"
-import img10 from "../assets/members/Jazmin.jpg"
+import img01 from "../assets/members/Alberto.JPG"
+import img02 from "../assets/members/Ian.JPG"
+import img03 from "../assets/members/Adriana.JPG"
+import img04 from "../assets/members/Vilma.JPG"
+import img05 from "../assets/members/Ashley.JPG"
+import img06 from "../assets/members/Gissel.JPG"
+import img07 from "../assets/members/Luis.JPG"
+import img08 from "../assets/members/Dayrelis.JPG"
+import img09 from "../assets/members/Avit.JPG"
+import img10 from "../assets/members/Jazmin.JPG"
 
 const galleryMember = [
     {
