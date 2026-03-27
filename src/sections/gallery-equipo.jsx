@@ -1,6 +1,7 @@
 import Gallery from "../components/layout/gallery";
 import Container from "../components/ui/container";
 import { useInView } from "../hooks/useInView";
+import { useState, useEffect } from 'react';
 import img01 from "../assets/members/Alberto.JPG"
 import img02 from "../assets/members/Ian.JPG"
 import img03 from "../assets/members/Adriana.JPG"
@@ -77,32 +78,36 @@ const galleryMember = [
 const staggerMs = [0, 150, 300];
 
 export default function GalleryUse() {
-    const { ref: viewRef, isInView: inView } = useInView({ threshold: 0.1, once: true });
+    const { ref: viewRef, isInView: inView } = useInView({ threshold: 0.1, once: false });
+    const [hasBeenSeen, setHasBeenSeen] = useState(false);
+
+    useEffect(() => {
+        if (inView) setHasBeenSeen(true);
+    }, [inView]);
 
     return (
-
         <section id="miembros" className="relative mb-21">
             <div ref={viewRef}>
-            <Container variant="default"
-                className={`
-                             relative z-10 
-                             grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-                             gap-6 mx-auto py-12 px-0
-                             transition-all duration-700 delay-150 ease-out
-                             ${inView ? 'animate-fade-in-up' : 'animate-fade-out-down'}`} >
-                {galleryMember.map((card, index) => (
-                    <Gallery
-                        key={index}
-                        name={card.name}
-                        role={card.role}
-                        bio={card.bio}
-                        img={card.img}
-                        style={{ animationDelay: `${staggerMs[index]}ms` }}
-
-                    />
-                ))}
-            </Container>
+                <Container variant="default"
+                    className={`
+                        relative z-10 
+                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+                        gap-6 mx-auto py-12 px-0
+                        transition-all duration-700 delay-150 ease-out
+                        ${!hasBeenSeen ? 'opacity-0' : inView ? 'animate-fade-in-up' : 'animate-fade-out-down'}
+                    `}>
+                    {galleryMember.map((card, index) => (
+                        <Gallery
+                            key={index}
+                            name={card.name}
+                            role={card.role}
+                            bio={card.bio}
+                            img={card.img}
+                            style={{ animationDelay: `${staggerMs[index]}ms` }}
+                        />
+                    ))}
+                </Container>
             </div>
         </section>
-    )
+    );
 }
