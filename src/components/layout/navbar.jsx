@@ -29,12 +29,12 @@ const navegate = useNavigate();
         </a>
 
         {/* Nav desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        <nav className="hidden md:flex items-center gap-6 text-sm ">
           {navItems.map((item) => (
             <a 
               key={item.href}
               onClick={() => navegate (item.href)}
-              className="text-gray-600 hover:text-gray-900 transition-colors">
+              className="text-[#2c3e2d]  hover:font-bold cursor-pointer select-none transition-colors ">
               {item.label}
             </a>
           ))}

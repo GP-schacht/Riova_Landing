@@ -7,10 +7,9 @@ import card3Img from '../assets/members/RIOVAxALIANZAS.png';
 import { useInView } from '../hooks/useInView';
 
 const cardData = [
-    { title: "PILARES", description: "Nuestros pilares y ODS orientan la forma en que intervenimos en las comunidades y el impacto que buscamos generar. ", imageSrc: card1Img, router:"/" },
-    {
-        title: "OBJETIVOS ", description: "Metas claras orientadas a reducir el volumen de residuos y fortalecer la gestión sostenible a nivel local.", imageSrc: card2Img },
-    { title: "EQUIPO", description: "Somos un grupo de 10 jóvenes comprometidos y apasionados por generar impacto, que trabajamos desde distintas disciplinas para impulsar soluciones sostenibles en comunidades ribereñas", imageSrc: card3Img },];
+    { title: "PILARES", description: "Nuestros pilares y ODS orientan la forma en que intervenimos en las comunidades y el impacto que buscamos generar. ", imageSrc: card1Img, router:"/Pilares" },
+    {title: "OBJETIVOS ", description: "Metas claras orientadas a reducir el volumen de residuos y fortalecer la gestión sostenible a nivel local.", imageSrc: card2Img, router:"/Objetivos" },
+    { title: "EQUIPO", description: "Somos un grupo de 10 jóvenes comprometidos y apasionados por generar impacto, que trabajamos desde distintas disciplinas para impulsar soluciones sostenibles en comunidades ribereñas", imageSrc: card3Img ,router:"/Equipo"},];
 // animation-delay no existe como utilidad en Tailwind — se aplica inline
 const staggerMs = [0, 150, 300];
 
@@ -36,6 +35,7 @@ export default function Cards() {
                             imageSrc={card.imageSrc}
                             style={{ animationDelay: `${staggerMs[index]}ms` }}
                             className={''}
+                            onCtaClick={card.router}
                             
                         />
                     ))}

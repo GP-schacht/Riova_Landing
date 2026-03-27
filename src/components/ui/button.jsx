@@ -7,10 +7,10 @@ const baseClasses = `
 `;
 
 const variants = {
-  primary: 'bg-lime-300 text-white hover:bg-teal-600',
-  secondary: 'bg-lime-400 text-white hover:bg-lime-500',
-  terciary: 'bg-white text-black hover:border border-gray-300 ',
-  outline: 'border border-white  text-white  hover:bg-teal-800',
+  primary: 'bg-lime-300 text-white hover:bg-teal-600 cursor-pointer select-none',
+  secondary: 'bg-lime-400 text-white hover:bg-lime-500 cursor-pointer select-none',
+  terciary: 'bg-white text-black hover:border border-gray-300 cursor-pointer select-none ',
+  outline: 'border border-white  text-white  hover:bg-teal-800 cursor-pointer select-none ',
 };
 
 export default function Button({

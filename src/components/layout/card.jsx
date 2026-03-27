@@ -1,5 +1,6 @@
 // Card.jsx
 import Container from "../ui/container";
+import { useNavigate } from 'react-router-dom';
 
 export default function Card({
   title,
@@ -10,6 +11,8 @@ export default function Card({
   onCtaClick,
   className = '',
 }) {
+
+  const navegate = useNavigate();
   return (
     <Container
       variant="glassLigthCard"
@@ -63,10 +66,10 @@ export default function Card({
             )}
             {onCtaClick && (
               <button
-                onClick={onCtaClick}
-                className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline transition-all"
+                onClick = {() => navegate(onCtaClick) }
+                className="text-sm font-medium text-[#5CA8A1] dark:text-blue-400 hover:underline transition-all"
               >
-                Leer más →
+                Ver más →
               </button>
             )}
           </div>
