@@ -27,7 +27,6 @@ export default function Mision() {
                         `}
                     >
                         <h2 className="text-5xl xl:text-6xl font-bold text-[#2c3e2d] leading-tight">
-                            Nuestra{' '}
                             <span className="text-[#C9D755]">MISIÓN</span>
                         </h2>
                         <p className="text-[#313d32] text-base sm:text-lg leading-relaxed">
