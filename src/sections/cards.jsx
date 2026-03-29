@@ -3,7 +3,7 @@ import Container from "../components/ui/container";
 import Card from "../components/layout/card";
 import card1Img from '../assets/01 CON FONDO/RIOVA LOGO-02.png';
 import card2Img from '../assets/01 CON FONDO/RIOVA LOGO-03.png';
-import card3Img from '../assets/members/RIOVAxALIANZAS.png';
+import card3Img from '../assets/vision-mision-otros/RIOVA-x-ALIANZAS.webp';
 import { useInView } from '../hooks/useInView';
 
 const cardData = [

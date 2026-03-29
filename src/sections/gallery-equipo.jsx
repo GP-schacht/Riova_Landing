@@ -2,24 +2,19 @@ import Gallery from "../components/layout/gallery";
 import Container from "../components/ui/container";
 import { useInView } from "../hooks/useInView";
 import { useState, useEffect } from 'react';
-import img01 from "../assets/members/Alberto.JPG"
-import img02 from "../assets/members/Ian.JPG"
-import img03 from "../assets/members/Adriana.JPG"
-import img04 from "../assets/members/Vilma.JPG"
-import img05 from "../assets/members/Ashley.JPG"
-import img06 from "../assets/members/Gissel.JPG"
-import img07 from "../assets/members/Luis.JPG"
-import img08 from "../assets/members/Dayrelis.JPG"
-import img09 from "../assets/members/Avit.JPG"
-import img10 from "../assets/members/Jazmin.JPG"
+import img01 from "../assets/members/Alberto.webp"
+import img02 from "../assets/members/Ian.webp"
+import img03 from "../assets/members/Adriana.webp"
+import img04 from "../assets/members/Vilma.webp"
+import img05 from "../assets/members/Ashley.webp"
+import img06 from "../assets/members/Gissel.webp"
+import img07 from "../assets/members/Luis.webp"
+import img08 from "../assets/members/Dayrelis.webp"
+import img09 from "../assets/members/Avit.webp"
+import img10 from "../assets/members/Jazmin.webp"
 
 const galleryMember = [
-    {
-        name: "Alberto González",
-        role: "Coordinador de Operaciones",
-        bio: "Estudiante de Ingeniería Electromecánica en la UTP. Cree en un Panamá más verde, consciente del valor de sus recursos y de cómo preservarlos. Por eso decidió ser parte de RIOVA para aportar, junto a otros jóvenes, a ayudar a más comunidades a empoderar su gestión ambiental.",
-        img: img01
-    },
+
     {
         name: "Ian Del Cid",
         role: "Coordinador General",
@@ -27,10 +22,11 @@ const galleryMember = [
         img: img02
     },
     {
-        name: "Adriana Hidalgo C.",
-        role: "Coordinadora Institucional",
-        bio: "Estudiante de Relaciones Internacionales en la Universidad de Panamá. Dentro de RIOVA apoya en la gestión de alianzas con distintas instituciones. Una de sus metas es aportar al impacto que se puede lograr cuando se trabaja en conjunto con las comunidades para construir un futuro sostenible.",
-        img: img03
+
+        name: "Alberto González",
+        role: "Coordinador de Operaciones",
+        bio: "Estudiante de Ingeniería Electromecánica en la UTP. Cree en un Panamá más verde, consciente del valor de sus recursos y de cómo preservarlos. Por eso decidió ser parte de RIOVA para aportar, junto a otros jóvenes, a ayudar a más comunidades a empoderar su gestión ambiental.",
+        img: img01
     },
     {
         name: "Vilma De León",
@@ -45,33 +41,39 @@ const galleryMember = [
         img: img05
     },
     {
+        name: "Adriana Hidalgo C.",
+        role: "Coordinadora Institucional",
+        bio: "Estudiante de Relaciones Internacionales en la Universidad de Panamá. Dentro de RIOVA apoya en la gestión de alianzas con distintas instituciones. Una de sus metas es aportar al impacto que se puede lograr cuando se trabaja en conjunto con las comunidades para construir un futuro sostenible.",
+        img: img03
+    },
+    {
+        name: "Luis Palacios ",
+        role: "Sub coordinador Institucional ",
+        bio: "Originario de la Comarca Ngäbe-Buglé. Estudiante de Licenciatura en Gestión de Tecnología de la Información en la UNACHI. Dentro de RIOVA, apoya en la identificación, gestión y fortalecimiento de alianzas estratégicas con instituciones públicas y privadas, así como en la negociación y seguimiento de convenios de colaboración. Tiene como objetivo contribuir al desarrollo de iniciativas que generen impacto sostenible, promoviendo el trabajo articulado entre organizaciones y comunidades.",
+        img: img07
+    },
+    {
+        name: "Dayrelis Ortega",
+        role: "Coordinadora de Pedagogía ",
+        bio: "Estudiante de la Licenciatura en Biología Ambiental, comprometida con la educación ambiental como herramienta de transformación social. Dentro de RIOVA lidera el diseño y desarrollo de estrategias pedagógicas orientadas a fortalecer la conciencia ambiental y promover prácticas sostenibles en comunidades ribereñas, fomentando el aprendizaje participativo y el empoderamiento comunitario.",
+        img: img08
+    },
+    {
         name: "Gissel Ariza ",
         role: "Coordinadora de Redes ",
         bio: "Estudiante de último año de secundaria. Desde su rol, gestiona la comunicación digital del proyecto, creando contenido y difundiendo las acciones realizadas en la comunidad. Su trabajo contribuye a visibilizar el impacto del proyecto y fortalecer la participación de los residentes. ",
         img: img06
     },
     {
-        name: "Luis Palacios ",
-        role: "Sub coordinador Institucional ",
-        bio: "",
-        img: img07
-    },
-    {
-        name: "Dayrelis Ortega",
-        role: "Coordinadora de Pedagogía ",
-        bio: "",
-        img: img08
-    },
-    {
         name: "Avit Wood",
         role: "Sub corrdinadora de redes",
-        bio: "",
+        bio: "Estudiante de secundaria de 5to año, encargada de la gestión de la comunicación digital de RIOVA. Trabaja la creación de contenido y el manejo de redes sociales, buscando generar mayor alcance e impacto en la comunidad. Cree en el poder de la juventud como motor de cambio para construir un futuro mejor.",
         img: img09
     },
     {
         name: "Jazmín Hurtado",
         role: "Sub corrdinadora de redes",
-        bio: "",
+        bio: "Es una estudiante de duodécimo grado en bachiller en ciencias, originaria de Colón, que se caracteriza por su compromiso y entusiasmo. Actualmente se desempeña como subcoordinadora de redes sociales del proyecto Riova, rol que asume con mucha alegría y responsabilidad. Se distingue por su deseo de ayudar a los demás y por su dedicación a llevar felicidad a quienes realmente lo necesitan, siempre a través de buenas acciones.",
         img: img10
     },
 ]

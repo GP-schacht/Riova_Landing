@@ -1,6 +1,7 @@
 // Visin.jsx
 import Container from "../components/ui/container";
 import { useInView } from '../hooks/useInView';
+import Img01 from '../assets/vision-mision-otros/DSC00411.webp';
 
 export default function Mision() {
     const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3, once: true });
@@ -10,7 +11,7 @@ export default function Mision() {
         <section id="vision" className="mb-20 relative">
 
             {/* Fondo azul — decorativo, posicionado absolute */}
-            
+
 
             <Container variant="rounded1" className="py-16 md:py-[5rem] my-[5rem] ">
 
@@ -29,25 +30,27 @@ export default function Mision() {
                             <span className="text-[#5CA8A1]">Vision</span>
                         </h2>
                         <p className="text-[#19233a] text-base sm:text-lg leading-relaxed">
-                            En Riova, nuestra misión es revolucionar la forma en que las personas
-                            interactúan con la tecnología. Nos esforzamos por crear soluciones
-                            innovadoras y accesibles que empoderen a nuestros usuarios para alcanzar
-                            su máximo potencial. Creemos en un futuro donde la tecnología sea una
-                            herramienta para el crecimiento personal y profesional, y trabajamos
-                            incansablemente para hacer esa visión una realidad.
+                            Lograr que la comunidad de Mastranto Rural se convierta en una comunidad
+                            consciente y comprometida con su entorno, donde las acciones colectivas de sus
+                            habitantes contribuyan a la protección del río Caimito y a un futuro ambiental más
+                            sostenible.
                         </p>
                     </div>
 
                     {/* Card derecha */}
-                    <div
-                        ref={imgRef}
-                        className={`
-                            transition-all duration-700 delay-150 ease-out
-                             rounded-lg border border-gray-300/50
-                            aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
-                            ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-                        `}
-                    />
+                   <div
+                                           ref={imgRef}
+                                           className={`
+                                               transition-all duration-700 delay-150 ease-out
+                                                rounded-lg 
+                                               aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-lg mx-auto
+                                               ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
+                                               order-1
+                                               overflow-hidden
+                                           `}
+                                       >
+                                       <img src={Img01} alt="Imagen de la misión" className="w-full h-auto object-cover"/>
+                                       </div>
 
                 </div>
             </Container>

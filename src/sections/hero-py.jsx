@@ -1,30 +1,23 @@
-import Container from '../components/ui/container.jsx';
-import Button from '../components/ui/button.jsx';
+import Hero from "../components/layout/hero";
+import Img01 from '../assets/vision-mision-otros/DSC00420.webp';
 // import heroImg from '../assets/images/hero.png'; // ejemplo si luego agregas imagen
 
-export default function Hero() {
+export default function HeroPy() {
   return (
-    <section id="hero" className="pt-20  bg-[#5CA8A1] h-[90vh]  content-center">
-      <Container variant='default' className="flex gap-10 items-center justify-center">
-        <div className="text-center lg:text-center ">
-         
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 ">
-            Una frase que genere <span className="text-[#C9D755]">impacto o defina el proyecto</span>
-          </h1>
-          <p className="text-gray-100 mb-6">
-           descripcion un poco mas detallada pero no lo suficiente para que invite a ver mas del proyecto .
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mb-4 justify-center">
-            <Button as="a" href="#pricing" variant='outline'>
-              call to action
-            </Button>
-          
-          </div>
-
-      
-        </div>
-      </Container>
-    </section>
+    <section id="hero" className="  pt-20  h-[90vh]  content-center" style={{
+        backgroundImage: `url(${Img01})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+      <div className='absolute inset-0 bg-black/50' />
+                <Hero
+                    titleA={'Somos'}
+                    titleB={' Riova'}
+                    description={'Gestión comunitaria de residuos sólidos en Mastranto Rural, La Chorrera, para la protección del río Caimito y sus ecosistemas ribereños.'}
+                    titleSize={'xl:text-8xl'}>
+    
+                </Hero>
+            </section>
   );
 }

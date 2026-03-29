@@ -1,6 +1,7 @@
 // Mision.jsx
 import Container from "../components/ui/container";
 import { useInView } from '../hooks/useInView';
+import Img01 from '../assets/vision-mision-otros/DSC00407.webp';
 
 export default function Mision() {
     const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3, once: true });
@@ -10,7 +11,7 @@ export default function Mision() {
         <section id="mision" className="mt-20 relative">
 
             {/* Fondo verde — decorativo, posicionado absolute */}
-           
+
 
             <Container variant="rounded2" className="py-10 md:py-[5rem] my-[5rem]  ">
 
@@ -30,12 +31,11 @@ export default function Mision() {
                             <span className="text-[#C9D755]">Misión</span>
                         </h2>
                         <p className="text-[#313d32] text-base sm:text-lg leading-relaxed">
-                            En Riova, nuestra misión es revolucionar la forma en que las personas
-                            interactúan con la tecnología. Nos esforzamos por crear soluciones
-                            innovadoras y accesibles que empoderen a nuestros usuarios para alcanzar
-                            su máximo potencial. Creemos en un futuro donde la tecnología sea una
-                            herramienta para el crecimiento personal y profesional, y trabajamos
-                            incansablemente para hacer esa visión una realidad.
+                            Fortalecer la gestión de residuos sólidos en la comunidad de Mastranto Rural, en el
+                            distrito de La Chorrera, mediante procesos de educación ambiental, participación
+                            comunitaria y organización local, con el fin de reducir el arrastre de desechos hacia el
+                            río Caimito y promover una cultura ambiental responsable que contribuya a la
+                            protección de los ecosistemas ribereños y al bienestar de la comunidad.
                         </p>
                     </div>
 
@@ -44,12 +44,15 @@ export default function Mision() {
                         ref={imgRef}
                         className={`
                             transition-all duration-700 delay-150 ease-out
-                            bg-[#3d5a3e]/50  rounded-lg border border-gray-300/50
-                            aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-md mx-auto
+                             rounded-lg 
+                            aspect-[4/3] w-full max-w-xs sm:max-w-sm xl:max-w-lg mx-auto
                             ${imgInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
                             order-1
+                            overflow-hidden
                         `}
-                    />
+                    >
+                    <img src={Img01} alt="Imagen de la misión" className="w-full h-auto object-cover"/>
+                    </div>
 
                 </div>
             </Container>

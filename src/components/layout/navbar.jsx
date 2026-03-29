@@ -20,7 +20,7 @@ const navegate = useNavigate();
       <Container className="flex items-center justify-between h-20 sm:h-24">
 
         {/* Logo */}
-        <a onClick={() => navegate('/')}  className="flex items-center gap-2">
+        <a onClick={() => navegate('/')}  className="flex items-center gap-2 cursor-pointer select-none">
           <img
             src={card1Img}
             alt="Riova Logo"
