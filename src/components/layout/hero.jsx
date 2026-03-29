@@ -7,6 +7,7 @@ export default function Hero({
     titleSize,
     description,
     buttontxt,
+    colorHighlight,
     onCtaClick,
     className = ''
 }) {
@@ -14,7 +15,7 @@ export default function Hero({
         <Container variant='default' className={`flex gap-10 items-center justify-center ${className} relative z-10`}>
             <div className="text-center lg:text-center">
                 <h1 className={`text-4xl md:text-5xl ${titleSize} font-extrabold tracking-tight text-white mb-4`}>
-                    {titleA} <span className="text-[#C9D755]">{titleB}</span>
+                    {titleA} <span className={`text-[${colorHighlight}]`}>{titleB}</span>
                 </h1>
 
                 {description && (
