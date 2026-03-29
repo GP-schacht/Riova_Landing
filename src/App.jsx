@@ -7,11 +7,14 @@ import Pilares from './pages/pilares'
 import Objetivos from './pages/objetivos'
 import Equipo from './pages/equipo'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/others/scrollTop.jsx';
 
 function App() {
   
   return (
     <Router>
+      <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/nosotros" element={<Nosotros />} />
