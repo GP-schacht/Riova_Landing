@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Container from '../ui/container.jsx';
+import emailjs from '@emailjs/browser';
 
 function ContactModal({ onClose }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -10,15 +11,32 @@ function ContactModal({ onClose }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    // Simulación de envío — reemplaza con tu lógica real (EmailJS, API, etc.)
-    setTimeout(() => {
-      setLoading(false);
-      setSent(true);
-    }, 1200);
-  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    await emailjs.sendForm(
+      'SERVICE_ID',
+      'TEMPLATE_ID',
+      {
+        from_name:  form.name,
+        from_email: form.email,
+        message:    form.message,
+      },
+'PUBLIC_KEY'
+
+    );
+    setSent(true);
+  }
+  catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+    alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.');
+  }finally{
+    setLoading(false);
+  }
+}
 
   return (
     <div
