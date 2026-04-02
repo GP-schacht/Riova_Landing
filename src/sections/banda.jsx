@@ -3,8 +3,10 @@ import Banda from "../components/layout/banda";
 
 export default function BandaSection() {
     const frases = [   
-        "lorrem ipsum dolor sit amet, consectetur adipiscing elit.", 
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
+        "Lo que tiras al río, te lo devuelve la vida.", 
+        "Porque cada río empieza en las manos de su comunidad.", 
+        "Protege el río, protege tu futuro.",
+        "RIOVA: donde el río vuelve a vivir."
     ];
 
     return (

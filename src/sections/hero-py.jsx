@@ -12,10 +12,10 @@ export default function HeroPy() {
       }}>
       <div className='absolute inset-0 bg-black/50' />
                 <Hero
-                    titleA={'SOMOS'}
-                    titleB={' RIOVA'}
+                    titleA={'RIOS VIVOS,'}
+                    titleB={'COMUNIDADES EN ACCIÓN'}
                     description={'Gestión comunitaria de residuos sólidos en Mastranto Rural, La Chorrera, para la protección del río Caimito y sus ecosistemas ribereños.'}
-                    titleSize={'xl:text-8xl'}
+                    titleSize={'xl:text-6xl'}
                     colorHighlight={'#C9D755'}>
                 </Hero>
             </section>
