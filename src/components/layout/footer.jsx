@@ -11,32 +11,29 @@ function ContactModal({ onClose }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-
-  try {
-    await emailjs.sendForm(
-      'SERVICE_ID',
-      'TEMPLATE_ID',
-      {
-        from_name:  form.name,
-        from_email: form.email,
-        message:    form.message,
-      },
-'PUBLIC_KEY'
-
-    );
-    setSent(true);
-  }
-  catch (error) {
-    console.error('Error al enviar el mensaje:', error);
-    alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.');
-  }finally{
-    setLoading(false);
-  }
-}
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          message:    form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setSent(true);
+    } catch (error) {
+      console.error('Error al enviar el mensaje:', error);
+      alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div
@@ -44,7 +41,6 @@ const handleSubmit = async (e) => {
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 relative animate-fade-in">
-        {/* Botón cerrar */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors"
@@ -59,7 +55,7 @@ const handleSubmit = async (e) => {
         {sent ? (
           <div className="flex flex-col items-center gap-4 py-6 text-center">
             <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#C9D755]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
@@ -67,7 +63,7 @@ const handleSubmit = async (e) => {
             <p className="text-sm text-gray-500">Nos pondremos en contacto contigo pronto.</p>
             <button
               onClick={onClose}
-              className="mt-2 px-6 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-700 transition-colors"
+              className="mt-2 px-6 py-2 bg-[#5CA8A1] text-white text-sm rounded-lg hover:bg-gray-700 transition-colors"
             >
               Cerrar
             </button>
@@ -117,7 +113,7 @@ const handleSubmit = async (e) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-1 w-full bg-gray-900 text-white text-sm font-medium py-2.5 rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-60"
+                className="mt-1 w-full bg-[#5CA8A1] text-white text-sm font-medium py-2.5 rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-60"
               >
                 {loading ? 'Enviando...' : 'Enviar mensaje'}
               </button>
@@ -157,7 +153,6 @@ export default function Footer() {
               FAQ
             </a>
 
-            {/* Separador */}
             <span className="text-gray-200">|</span>
 
             {/* Instagram */}
@@ -168,16 +163,7 @@ export default function Footer() {
               className="hover:text-gray-800 transition-colors"
               aria-label="Instagram"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -192,16 +178,7 @@ export default function Footer() {
               className="hover:text-gray-800 transition-colors"
               aria-label="LinkedIn"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
