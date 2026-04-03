@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Container from '../ui/container.jsx';
+import ContactModal from './contacto.jsx';
 import card1Img from '../../assets/02 SIN FONDO/RIOVA LOGO-06.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,8 +15,12 @@ const navItems = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-const navegate = useNavigate();
+  const navegate = useNavigate();
+  const [showContact, setShowContact] = useState(false);
   return (
+    <>
+    {showContact && <ContactModal onClose={() => setShowContact(false)} />}
+
     <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-300">
       <Container className="flex items-center justify-between h-20 sm:h-24">
 
@@ -33,11 +38,17 @@ const navegate = useNavigate();
           {navItems.map((item) => (
             <a 
               key={item.href}
-              onClick={() => navegate (item.href)}
+              onClick={() =>  navegate (item.href)}
               className="text-[#2c3e2d]  hover:font-bold cursor-pointer select-none transition-colors ">
               {item.label}
             </a>
           ))}
+            <button
+              onClick={() => setShowContact(true)}
+              className="text-[#2c3e2d]  hover:font-bold cursor-pointer select-none transition-colors "
+            >
+              Contacto
+            </button>
         </nav>
 
         {/* Hamburguesa */}
@@ -71,5 +82,6 @@ const navegate = useNavigate();
         </nav>
       </div>
     </header>
+    </>
   );
 }
