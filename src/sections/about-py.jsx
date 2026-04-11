@@ -27,7 +27,7 @@ export default function AboutPy() {
                         <h1 className="text-5xl  sm:text-6xl xl:text-8xl text-[#313d32] font-extrabold leading-tight">
                             QUIENES <span className="text-[#C9D755]">SOMOS?</span>?
                         </h1>
-                        <p className='text-[#313d32] text-base sm:text-lg leading-relaxed text-justify'>
+                        <p className='text-[#313d32] text-base sm:text-lg leading-relaxed text-align-left'>
                             Somos un grupo de 10 jovenes de la 7.ª edición del Laboratorio 
                             Latinoamericano de Acción Ciudadana, donde encontramos la necesidad 
                             de actuar frente a los residuos que llegan a nuestros ríos.

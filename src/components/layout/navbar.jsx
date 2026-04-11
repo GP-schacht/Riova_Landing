@@ -74,11 +74,17 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="text-gray-700 hover:text-gray-900 text-base py-1 transition-colors"
+              className="text-[#2c3e2d]  hover:font-bold text-base py-1 transition-colors"
             >
               {item.label}
             </a>
           ))}
+            <button
+              onClick={() => setShowContact(true)}
+              className="text-[#2c3e2d]  hover:font-bold cursor-pointer select-none transition-colors text-left"
+            >
+              Contacto
+            </button>
         </nav>
       </div>
     </header>
