@@ -34,7 +34,7 @@ export default function Footer() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/riovapty?igsh=ODN6enZldXc4ODBvbQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-800 transition-colors"
@@ -49,7 +49,7 @@ export default function Footer() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/riova-panama-4519a23b8/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-800 transition-colors"
