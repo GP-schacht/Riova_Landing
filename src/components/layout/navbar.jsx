@@ -13,7 +13,7 @@ const navItems = [
 
 
 
-export default function Navbar() {
+export default function Navbar() {  
   const [open, setOpen] = useState(false);
   const navegate = useNavigate();
   const [showContact, setShowContact] = useState(false);

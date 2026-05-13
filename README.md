@@ -1,18 +1,49 @@
-# React + Vite
+# RIOVA - Ríos Vivos, Comunidades en Acción
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**RIOVA** es una iniciativa ciudadana creada por 10 jóvenes de la 7.ª edición del Laboratorio Latinoamericano de Acción Ciudadana. Busca mejorar la gestión de residuos sólidos en comunidades ribereñas (Mastranto Rural, La Chorrera) para proteger el río Caimito y sus ecosistemas, a través de concientización, psicoeducación ambiental y participación comunitaria.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Tecnología    | Propósito                     |
+| ------------- | ----------------------------- |
+| **React 19**  | UI y componentes              |
+| **Vite 8**    | Build tool y dev server       |
+| **React Router 7** | Rutas SPA (5 páginas)    |
+| **Tailwind CSS 3** | Estilos utilitarios        |
+| **EmailJS**   | Envío de correo desde cliente |
+| **Vercel**    | Deploy (estático)             |
+| **ESLint**    | Linter                        |
 
-## React Compiler
+## Estructura del proyecto
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```
+vilma-py/
+├── public/                      # Archivos estáticos (fonts, favicon)
+├── src/
+│   ├── assets/                  # Imágenes, SVG, recursos externos
+│   ├── components/
+│   │   ├── layout/              # navbar, footer, hero, card, gallery, contacto, banda, section
+│   │   ├── ui/                  # button, container
+│   │   └── others/              # scrollTop
+│   ├── hooks/                   # useInView (intersección con animaciones)
+│   ├── pages/                   # landing, nosotros, pilares, objetivos, equipo
+│   ├── sections/                # Secciones reutilizables por página (hero-*, about-*, etc.)
+│   ├── styles/                  # Global.css
+│   ├── App.jsx                  # Router principal
+│   └── main.jsx                 # Entry point
+├── index.html
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+└── eslint.config.js
+```
 
-Note: This will impact Vite dev & build performances.
+### Páginas
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Ruta         | Página        | Secciones                                          |
+| ------------ | ------------- | -------------------------------------------------- |
+| `/`          | Landing       | Hero, About, Misión, Visión, Cards, Banda          |
+| `/nosotros`  | Nosotros      | Hero, About, LLAC                                  |
+| `/pilares`   | Pilares       | Hero, Salud, Habilidades                           |
+| `/objetivos` | Objetivos     | Hero, General, Específicos                         |
+| `/equipo`    | Equipo        | Hero, Gallery (miembros)                           |
