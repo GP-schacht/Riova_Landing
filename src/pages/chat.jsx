@@ -15,6 +15,11 @@ export default function Chat() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+const SYSTEM_PROMPT = `Eres Vilma, asistente virtual de Riova, una iniciativa de reciclaje para la comunidad de mastranto la chorrera.
+Solo respondes preguntas sobre rio caimito de chorrera, dudas de reciclaje y cuidado del ambiente..
+Si el usuario pregunta algo fuera de ese tema, dile amablemente que no puedes ayudarle con eso.
+Responde siempre en español.`;
+
   const handleSend = async (text) => {
   const userMsg = { role: 'user', message: text };
   setMessages((prev) => [...prev, userMsg]);
@@ -29,7 +34,9 @@ export default function Chat() {
       },
       body: JSON.stringify({
         model: 'llama-3.3-70b-versatile',
-        messages: [...messages, userMsg].map((m) => ({
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          ...messages, userMsg].map((m) => ({
           role: m.role === 'user' ? 'user' : 'assistant',
           content: m.message,
         })),
