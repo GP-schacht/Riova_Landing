@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Pilares',   href: '/pilares'   },
   { label: 'Objetivos',   href: '/objetivos'   },
   { label: 'Equipo',  href: '/equipo'  },
+  { label: 'Chat',  href: '/chat'  },
 ];
 
 

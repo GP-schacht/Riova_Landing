@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#3d7a74">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>RIOVA · Apoyo Comunitario</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #f0f7f6;
+}
+
+/* ─── WRAP — pantalla completa en todo dispositivo ─── */
+#wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: #f0f7f6;
+  overflow: hidden;
+}
+
+#wrap.dark { background: #1a1f1e; border-color: #2e3b38; }
+
+/* ─── HEADER ─── */
+#hdr {
+  background: linear-gradient(135deg, #3d7a74, #5CA8A1, #4a9089);
+  padding: 12px 20px;
+  padding-top: max(12px, env(safe-area-inset-top, 12px));
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.hinfo { flex: 1; min-width: 0; }
+.hn { font-weight: 600; font-size: clamp(13px, 1.8vw, 16px); color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hs { font-size: clamp(10px, 1.2vw, 11.5px); color: rgba(255,255,255,0.82); margin-top: 2px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #C9D755; display: inline-block; margin-right: 4px; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* ─── DARK TOGGLE ─── */
+#toggle-btn {
+  width: 44px; height: 24px; border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.4);
+  cursor: pointer; background: rgba(0,0,0,0.25);
+  position: relative; flex-shrink: 0;
+  touch-action: manipulation;
+}
+#toggle-knob {
+  position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; transition: transform .3s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px;
+}
+#wrap.dark #toggle-knob { transform: translateX(20px); background: #C9D755; }
+
+/* ─── MENSAJES ─── */
+#msgs {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #e4f0ee;
+}
+
+.msg { display: flex; gap: 8px; align-items: flex-end; max-width: min(75%, 700px); }
+#wrap.dark #msgs { background: #111714; }
+
+.msg.u { align-self: flex-end; flex-direction: row-reverse; }
+.msg.b { align-self: flex-start; }
+
+.av2 {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600; flex-shrink: 0;
+}
+.b .av2 { background: #5CA8A1; color: #fff; }
+.u .av2 { background: #3B5287; color: #fff; }
+
+.bbl {
+  padding: 10px 14px; border-radius: 16px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.65;
+  word-break: break-word;
+}
+.b .bbl { background: #fff; border: 1px solid #a0ccc7; border-bottom-left-radius: 4px; color: #1a2e2b; }
+#wrap.dark .b .bbl { background: #232c2a; border-color: #2e3b38; color: #e8f0ee; }
+.u .bbl { background: #3B5287; color: #fff; border-bottom-right-radius: 4px; }
+
+/* Typing dots */
+.tp { display: flex; gap: 4px; padding: 10px 14px; align-items: center; }
+.tp span { width: 6px; height: 6px; border-radius: 50%; background: #5CA8A1; display: inline-block; animation: bo 1.2s infinite; }
+.tp span:nth-child(2){animation-delay:.2s} .tp span:nth-child(3){animation-delay:.4s}
+@keyframes bo { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+
+/* ─── SUGERENCIAS ─── */
+#sugs {
+  background: #1e4d3a;
+  border-top: 1px solid #163829;
+  padding: 10px 20px;
+  flex-shrink: 0;
+}
+#wrap.dark #sugs { background: #0d1a16; border-top: 1px solid #0a120e; }
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+  padding-bottom: 2px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(10px, 1vw, 11.5px);
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: none; cursor: pointer; font-weight: 700;
+  background: #2d7a4a; color: #fff;
+  transition: all .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.tab.on, .tab:hover { background: #C9D755; color: #1a2e2b; }
+
+#chips {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+  padding-bottom: 2px;
+}
+#chips::-webkit-scrollbar { display: none; }
+
+.chip {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(11px, 1.1vw, 13px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  cursor: pointer; font-weight: 600;
+  background: transparent; color: #fff;
+  white-space: nowrap;
+  transition: all .2s;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover, .chip:active { background: #fff; color: #1e4d3a; }
+
+#wrap.dark .tab { background: #1e3a1e; color: #a8cc6a; border: 1.5px solid #3a6a30; }
+#wrap.dark .tab.on, #wrap.dark .tab:hover { background: #5D6E26; color: #fff; border-color: #5D6E26; }
+#wrap.dark .chip { border-color: #7eccc5; color: #7eccc5; background: transparent; }
+#wrap.dark .chip:hover, #wrap.dark .chip:active { background: #7eccc5; color: #111; }
+
+/* ─── INPUT AREA ─── */
+#inp-area {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+  background: #f0f7f6;
+  border-top: 1px solid #8bbdb8;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+#wrap.dark #inp-area { background: #1a1f1e; border-top-color: #2e3b38; }
+
+#txt {
+  flex: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(13px, 1.3vw, 15px);
+  padding: 9px 16px;
+  border: 1.5px solid #7ab8b2;
+  border-radius: 24px;
+  outline: none;
+  background: #f8fdfc;
+  color: #1a2e2b;
+  resize: none;
+  min-height: 42px;
+  max-height: 120px;
+  line-height: 1.4;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#wrap.dark #txt { background: #1e2926; border-color: #2e3b38; color: #e8f0ee; }
+#txt:focus { border-color: #5CA8A1; }
+#txt::placeholder { color: #7aaba6; }
+
+#snd {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: #5CA8A1; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .2s;
+}
+#snd:hover, #snd:active { background: #4a9089; }
+#snd svg { width: 17px; height: 17px; fill: #fff; }
+
+/* ─── FOOTER ─── */
+#foot {
+  text-align: center;
+  font-size: clamp(9px, 1vw, 10.5px);
+  color: #5a8a84;
+  padding: 4px 16px 8px;
+  background: #f0f7f6;
+  flex-shrink: 0;
+}
+#wrap.dark #foot { background: #1a1f1e; color: #3a6a64; }
+
+/* ─── Pantallas muy pequeñas (< 360px) ─── */
+@media (max-width: 360px) {
+  #hdr { padding: 8px 12px; gap: 8px; }
+  #msgs { padding: 10px 12px; }
+  #sugs { padding: 6px 12px; }
+  #inp-area { padding: 8px 12px; gap: 6px; }
+  .bbl { padding: 8px 11px; }
+}
+</style>
+</head>
+<body>
+
+<div id="wrap">
+  <!-- HEADER -->
+  <div id="hdr">
+    <svg width="80" height="40" viewBox="0 0 90 46" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <rect x="1" y="1" width="88" height="40" rx="8" fill="#3d7a74" opacity="0.45"/>
+      <text x="5" y="33" font-family="Arial Black,Arial" font-weight="900" font-size="30" fill="#C9D755" stroke="#5D6E26" stroke-width="0.8" letter-spacing="-1">R</text>
+      <path d="M13.5,10 C13.5,8.5 15,7.5 16,9 C17,7.5 18.5,8.5 18.5,10 C18.5,12 16,14 16,14 C16,14 13.5,12 13.5,10Z" fill="#fff" opacity="0.95"/>
+      <text x="21" y="33" font-family="Arial Black,Arial" font-weight="900" font-size="30" fill="#fff" stroke="#3d7a74" stroke-width="0.5">i</text>
+      <text x="27" y="33" font-family="Arial Black,Arial" font-weight="900" font-size="30" fill="#C9D755" stroke="#5D6E26" stroke-width="0.8">O</text>
+      <polygon points="38,12 35,21 41,21" fill="#fff" opacity="0.95"/>
+      <text x="44" y="33" font-family="Arial Black,Arial" font-weight="900" font-size="30" fill="#fff" stroke="#3d7a74" stroke-width="0.5">V</text>
+      <text x="57" y="33" font-family="Arial Black,Arial" font-weight="900" font-size="30" fill="#C9D755" stroke="#5D6E26" stroke-width="0.8">A</text>
+      <path d="M4,38 Q13,34 22,38 Q31,42 40,38 Q49,34 58,38 Q67,42 76,38 Q82,35 86,38" stroke="#C9D755" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="hinfo">
+      <div class="hn">Apoyo Comunitario 🌿</div>
+      <div class="hs"><span class="dot"></span>Aquí para ayudarte a ti y a tu comunidad</div>
+    </div>
+    <button id="toggle-btn" onclick="toggleDark()" title="Modo oscuro/claro">
+      <div id="toggle-knob">☀️</div>
+    </button>
+  </div>
+
+  <!-- MENSAJES -->
+  <div id="msgs"></div>
+
+  <!-- SUGERENCIAS -->
+  <div id="sugs">
+    <div class="tabs" id="tabs"></div>
+    <div id="chips"></div>
+  </div>
+
+  <!-- INPUT -->
+  <div id="inp-area">
+    <textarea id="txt" placeholder="¿En qué te podemos ayudar hoy?" rows="1"></textarea>
+    <button id="snd" aria-label="Enviar">
+      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+
+  <div id="foot">Tu aliado ambiental en Mastranto Rural · @riovapty</div>
+</div>
+
+<script>
+var isDark = false;
+
+function toggleDark(){
+  isDark = !isDark;
+  document.getElementById('wrap').classList.toggle('dark', isDark);
+  document.getElementById('toggle-knob').textContent = isDark ? '🌙' : '☀️';
+}
+
+var FAQ = [
+  {keys:['basura en casa','basura','residuos','qué hago','manejo','separo'],a:'Lo más importante es <strong>separar la basura desde casa</strong> 🏠 Divide tus residuos en: <strong>reciclables</strong> (plástico, papel, cartón, vidrio), <strong>orgánicos</strong> (restos de comida, hojas) y <strong>desechos generales</strong>. Esto hace mucho más fácil depositarlos en los Puntos Limpios.'},
+  {keys:['acumula','basura regada','basura en la calle','esquina','acumulada'],a:'Si hay basura acumulada en tu cuadra, <strong>no la ignores</strong> 🙏 Usa los <strong>Puntos Limpios</strong> para depositarla correctamente. Si el foco es grande, repórtalo a la <strong>Junta Comunal</strong> o escríbenos a <strong>@riovapty</strong>.'},
+  {keys:['quemar','quemo','fuego','humo','incendio'],a:'¡Por favor no quemes la basura! 🚫🔥 Quemar residuos libera <strong>gases tóxicos</strong> peligrosos para toda la familia. Usa el <strong>Punto Limpio</strong> más cercano o espera la siguiente frecuencia del camión.'},
+  {keys:['olores','mal olor','huele mal','hedor'],a:'Los malos olores vienen de residuos <strong>orgánicos mezclados con otros desechos</strong> 😷 Separa siempre los restos de comida y asegúrate de que los envases estén <strong>limpios y secos</strong>.'},
+  {keys:['mucha basura','demasiada','no sé qué hacer','no puedo solo'],a:'¡No estás solo! 💪 Organiza a dos o tres vecinos para llevar residuos juntos al Punto Limpio más cercano. Un pequeño gesto colectivo transforma el barrio.'},
+  {keys:['punto limpio','puntos limpios','dónde botar','dónde depositar','dónde tirar'],a:'Los <strong>Puntos Limpios</strong> son estaciones con tanques de colores en tu comunidad 🗑️ Si no sabes dónde está el más cercano a tu casa, escríbenos a <strong>@riovapty</strong> y te orientamos.'},
+  {keys:['colores','color','clasificar','separar','qué va en cada','código'],a:'Los Puntos Limpios usan <strong>colores</strong> 🎨 <strong>Azul/amarillo</strong>: reciclables (plástico, papel, cartón, vidrio). <strong>Verde</strong>: orgánicos. <strong>Negro/gris</strong>: desechos generales.'},
+  {keys:['lleno','está lleno','rebosa','no cabe'],a:'Si el Punto Limpio está lleno, avísanos por <strong>@riovapty</strong> o a la <strong>Junta Comunal</strong> ⚠️ RIOVA coordina con <strong>Metal Verde</strong> la recolección periódica.'},
+  {keys:['cómo reciclar','reciclar','reciclaje','qué se recicla','empiezo'],a:'Reciclar es fácil 🌱 <strong>1)</strong> Separa plástico, papel, cartón y vidrio. <strong>2)</strong> Limpia y seca los envases. <strong>3)</strong> Llévalos al Punto Limpio. ¡Así se transforman en algo nuevo!'},
+  {keys:['plástico','botellas','envases','bolsas','PET'],a:'Botellas PET, envases de shampoo, jabón y detergente son reciclables 🍶 <strong>Enjuágalos, aplástalos y quítales la tapa</strong> antes de depositarlos.'},
+  {keys:['papel','cartón','periódico','cajas','revistas'],a:'El papel y cartón son fáciles de reciclar 📦 Acepta: <strong>cartón limpio, periódicos, revistas, papel impreso</strong>. No acepta: papel mojado o con grasa.'},
+  {keys:['vidrio','botellas de vidrio','frascos'],a:'El vidrio es 100% reciclable 🫙 Deposita <strong>botellas y frascos enjuagados</strong>. No mezcles con espejos o cerámica, tienen composición diferente.'},
+  {keys:['orgánico','restos de comida','cáscaras','sobras','compostaje'],a:'Los residuos orgánicos van en su espacio en los Puntos Limpios 🍂 Si tienes patio, el <strong>compostaje casero</strong> convierte los restos de comida en abono natural para tus plantas.'},
+  {keys:['peligroso','pila','batería','medicamento','vencidos','pintura'],a:'Pilas, baterías, medicamentos vencidos y pinturas requieren manejo especial ⚠️ <strong>Nunca los tires con la basura común.</strong> Consúltanos en <strong>@riovapty</strong> sobre dónde llevarlos en La Chorrera.'},
+  {keys:['río','caimito','agua','contaminado'],a:'El <strong>Río Caimito</strong> abastece a miles de familias en La Chorrera, Arraiján y Capira 🌊 Cada residuo que clasificas correctamente protege el agua que toda tu familia bebe.'},
+  {keys:['salud','enfermedades','dengue','mosquitos','ratas','plagas'],a:'La basura acumulada atrae <strong>mosquitos del dengue</strong> y <strong>ratones</strong> 🦟 Los niños y adultos mayores son los más vulnerables. Una cuadra limpia es una cuadra saludable.'},
+  {keys:['lluvia','cuando llueve','arrastre'],a:'La lluvia arrastra todo lo que está en la calle directo al río 🌧️ Si ves residuos sueltos antes de que llueva, recógelos y deposítalos en el Punto Limpio más cercano.'},
+  {keys:['3r','tres r','reducir','reutilizar','reciclar','hábito'],a:'Las <strong>3R</strong> ♻️ <strong>Reducir</strong>: compra solo lo necesario. <strong>Reutilizar</strong>: dale nueva vida a lo que aún sirve. <strong>Reciclar</strong>: transforma lo que ya no usas en materia prima nueva.'},
+  {keys:['motivar','convencer','vecino','vecinos','familia'],a:'La mejor forma de motivar es <strong>dar el ejemplo primero</strong> 🌱 Los vecinos notan cuando alguien separa la basura o usa el Punto Limpio. Contáctanos si quieres organizar algo colectivo.'},
+  {keys:['qué puedo hacer','cómo ayudo','participar','ayudar','quiero ayudar'],a:'¡Tu participación es clave! 💚 Separa la basura, usa los Puntos Limpios, no quemes y motiva a tus vecinos. Para más, escríbenos en <strong>@riovapty</strong>.'},
+  {keys:['niño','niños','hijos','enseñar','educación'],a:'Enseñar a los niños desde pequeños es muy poderoso 👧👦 Ponle nombre a cada bote según su color y que ellos decidan dónde va cada cosa. ¡Los hábitos de la infancia duran toda la vida!'},
+  {keys:['jornada','limpieza','organizar','cuadra','vecindario'],a:'¡Una <strong>jornada de limpieza comunitaria</strong> es muy impactante! 🧹 Convoca vecinos, coordina con la Junta Comunal y avísanos por <strong>@riovapty</strong> para que RIOVA te apoye.'},
+  {keys:['camión','recolector','no pasa','frecuencia','servicio'],a:'Si el camión no pasa, <strong>no acumules en la calle ni quemes</strong> 🚛 Usa los <strong>Puntos Limpios</strong> o reporta la falla a la <strong>Junta Comunal de Barrio Colón</strong>.'},
+  {keys:['riova','proyecto','quiénes son','qué es'],a:'<strong>RIOVA</strong> es la Red de Iniciativas para la Organización y Valoración Ambiental 🌿 Un proyecto comunitario en Mastranto Rural que trabaja junto a <strong>vecinos como tú</strong> para proteger el Río Caimito.'},
+  {keys:['contacto','contactar','instagram','riovapty'],a:'Contáctanos en <strong>@riovapty</strong> en Instagram 📲 Reporta focos de basura, pide orientación o pregunta cómo participar. ¡Siempre estamos para apoyarte!'},
+  {keys:['taller','talleres','capacitación','evento','actividad'],a:'RIOVA organiza <strong>talleres comunitarios</strong> sobre residuos y el cuidado del río 🏘️ Escríbenos a <strong>@riovapty</strong> para saber cuándo es el próximo en tu sector.'}
+];
+
+var CATS = {
+  'Mi casa':        ['¿Cómo separo la basura en casa?','Tengo mucha basura acumulada','¿Qué hago si el camión no pasa?','¿Puedo quemar la basura?','¿Por qué huele mal mi basura?'],
+  'Puntos Limpios': ['¿Dónde puedo botar mi basura?','¿Qué va en cada color?','El Punto Limpio está lleno','Hay basura acumulada en mi esquina','¿Cómo uso bien el Punto Limpio?'],
+  'Reciclaje':      ['¿Cómo empiezo a reciclar?','¿Qué hago con las botellas plásticas?','¿Se puede reciclar el cartón?','¿Dónde van las pilas y baterías?','¿Qué hago con los restos de comida?'],
+  'El Río':         ['¿Por qué cuidar el Río Caimito?','¿Cómo afecta la lluvia al río?','La basura afecta mi salud','¿Cómo evito que la basura llegue al río?','¿El río está contaminado?'],
+  'Mi comunidad':   ['¿Qué puedo hacer para ayudar?','¿Cómo motivo a mis vecinos?','¿Cómo enseño a mis hijos?','Quiero organizar una jornada de limpieza','¿Cómo contacto a RIOVA?']
+};
+
+function normalize(s){
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[¿?¡!]/g,'').trim();
+}
+function findAnswer(q){
+  var n=normalize(q), best=null, bs=0;
+  FAQ.forEach(function(f){
+    var s=0;
+    f.keys.forEach(function(k){ if(n.indexOf(normalize(k))!==-1) s+=k.split(' ').length; });
+    if(s>bs){bs=s;best=f;}
+  });
+  return (best&&bs>0) ? best.a : '¡Gracias por tu pregunta! 🌿 No tengo esa info exacta, pero escríbenos a <strong>@riovapty</strong> en Instagram y el equipo te orienta personalmente.';
+}
+function addMsg(role, html){
+  var d=document.createElement('div'); d.className='msg '+(role==='bot'?'b':'u');
+  var av=document.createElement('div'); av.className='av2'; av.textContent=role==='bot'?'R':'Tú';
+  var bl=document.createElement('div'); bl.className='bbl'; bl.innerHTML=html;
+  d.appendChild(av); d.appendChild(bl);
+  var msgs=document.getElementById('msgs');
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function showTyping(){
+  var d=document.createElement('div'); d.className='msg b'; d.id='ty';
+  var av=document.createElement('div'); av.className='av2'; av.textContent='R';
+  var bl=document.createElement('div'); bl.className='bbl tp';
+  bl.innerHTML='<span></span><span></span><span></span>';
+  d.appendChild(av); d.appendChild(bl);
+  var msgs=document.getElementById('msgs');
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function send(){
+  var txt=document.getElementById('txt');
+  var q=txt.value.trim(); if(!q) return;
+  txt.value=''; txt.style.height='auto';
+  addMsg('user',q); showTyping();
+  setTimeout(function(){
+    var ty=document.getElementById('ty'); if(ty) ty.remove();
+    addMsg('bot',findAnswer(q));
+  },650);
+}
+function sendChip(q){ document.getElementById('txt').value=q; send(); }
+function loadChips(cat){
+  var c=document.getElementById('chips'); c.innerHTML='';
+  (CATS[cat]||[]).forEach(function(q){
+    var b=document.createElement('button'); b.className='chip'; b.textContent=q;
+    b.onclick=function(){ sendChip(q); };
+    c.appendChild(b);
+  });
+}
+function buildTabs(){
+  var tc=document.getElementById('tabs'); var first=true;
+  Object.keys(CATS).forEach(function(cat){
+    var b=document.createElement('button');
+    b.className='tab'+(first?' on':''); b.textContent=cat;
+    b.onclick=function(){
+      document.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); loadChips(cat);
+    };
+    tc.appendChild(b); first=false;
+  });
+  loadChips('Mi casa');
+}
+
+var txt=document.getElementById('txt');
+txt.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(); }
+});
+txt.addEventListener('input',function(){
+  this.style.height='auto';
+  this.style.height=Math.min(this.scrollHeight,100)+'px';
+});
+document.getElementById('snd').onclick=send;
+
+buildTabs();
+addMsg('bot','¡Hola, vecino! Soy el asistente comunitario de <strong>RIOVA</strong> 🌊<br><br>Estoy aquí para ayudarte: <strong>separar tu basura, dónde depositar residuos, cuidar el río, qué hacer cuando el camión no pasa</strong> y mucho más.<br><br>Elige un tema abajo o escribe tu pregunta. ¡Aquí estamos para apoyarte!');
+</script>
+</body>
+</html>

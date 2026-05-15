@@ -6,6 +6,7 @@ import Nosotros from './pages/nosotros'
 import Pilares from './pages/pilares'
 import Objetivos from './pages/objetivos'
 import Equipo from './pages/equipo'
+import Chat from './pages/chat'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/others/scrollTop.jsx';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/pilares' element ={<Pilares />} />
         <Route path='/objetivos' element ={<Objetivos />} />
         <Route path='/equipo' element ={<Equipo />} />
+        <Route path='/chat' element={<Chat />} />
       </Routes>
     </Router>
   );
