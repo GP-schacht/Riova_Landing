@@ -36,10 +36,11 @@ Responde siempre en español.`;
         model: 'llama-3.3-70b-versatile',
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
-          ...messages, userMsg].map((m) => ({
+          [...messages, userMsg].map((m) => ({
           role: m.role === 'user' ? 'user' : 'assistant',
           content: m.message,
         })),
+      ],
       }),
     });
 
