@@ -4,6 +4,11 @@ import Footer from '../components/layout/footer.jsx';
 import ChatMessage from '../components/chat/ChatMessage.jsx';
 import ChatBar from '../components/chat/ChatBar.jsx';
 
+const SYSTEM_PROMPT = `Eres Vilma, asistente virtual de Riova, una iniciativa de reciclaje para la comunidad de mastranto la chorrera.
+Solo respondes preguntas sobre rio caimito de chorrera, dudas de reciclaje y cuidado del ambiente.
+Si el usuario pregunta algo fuera de ese tema, dile amablemente que no puedes ayudarle con eso.
+Responde siempre en español.`;
+
 export default function Chat() {
   const [messages, setMessages] = useState([
     { role: 'bot', message: '¡Hola! Soy Vilma, tu asistente virtual. ¿En qué puedo ayudarte?' },
@@ -15,45 +20,39 @@ export default function Chat() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-const SYSTEM_PROMPT = `Eres Vilma, asistente virtual de Riova, una iniciativa de reciclaje para la comunidad de mastranto la chorrera.
-Solo respondes preguntas sobre rio caimito de chorrera, dudas de reciclaje y cuidado del ambiente..
-Si el usuario pregunta algo fuera de ese tema, dile amablemente que no puedes ayudarle con eso.
-Responde siempre en español.`;
-
   const handleSend = async (text) => {
-  const userMsg = { role: 'user', message: text };
-  setMessages((prev) => [...prev, userMsg]);
-  setLoading(true);
+    const userMsg = { role: 'user', message: text };
+    setMessages((prev) => [...prev, userMsg]);
+    setLoading(true);
 
-  try {
-    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          [...messages, userMsg].map((m) => ({
-          role: m.role === 'user' ? 'user' : 'assistant',
-          content: m.message,
-        })),
-      ],
-      }),
-    });
+    try {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b-versatile',
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...[...messages, userMsg].map((m) => ({  // ✅ corregido
+              role: m.role === 'user' ? 'user' : 'assistant',
+              content: m.message,
+            })),
+          ],
+        }),
+      });
 
-    const data = await res.json();
-    const botReply = data.choices?.[0]?.message?.content ?? 'Lo siento, no pude procesar tu mensaje.';
-
-    setMessages((prev) => [...prev, { role: 'bot', message: botReply }]); // 👈 agregar respuesta
-  } catch (error) {
-    setMessages((prev) => [...prev, { role: 'bot', message: 'Error al conectar con el servidor.' }]);
-  } finally {
-    setLoading(false); // 👈 siempre desactivar loading
-  }
-};
+      const data = await res.json();
+      const botReply = data.choices?.[0]?.message?.content ?? 'Lo siento, no pude procesar tu mensaje.';
+      setMessages((prev) => [...prev, { role: 'bot', message: botReply }]);
+    } catch (error) {
+      setMessages((prev) => [...prev, { role: 'bot', message: 'Error al conectar con el servidor.' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col text-gray-900">
@@ -80,4 +79,4 @@ Responde siempre en español.`;
       <Footer />
     </div>
   );
-  }
+}
