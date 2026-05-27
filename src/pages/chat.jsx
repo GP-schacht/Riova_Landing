@@ -3,15 +3,13 @@ import Navbar from '../components/layout/navbar.jsx';
 import Footer from '../components/layout/footer.jsx';
 import ChatMessage from '../components/chat/ChatMessage.jsx';
 import ChatBar from '../components/chat/ChatBar.jsx';
+import context from '../contexts/context.md?raw';
 
-const SYSTEM_PROMPT = `Eres Vilma, asistente virtual de Riova, una iniciativa de reciclaje para la comunidad de mastranto la chorrera.
-Solo respondes preguntas sobre rio caimito de chorrera, dudas de reciclaje y cuidado del ambiente.
-Si el usuario pregunta algo fuera de ese tema, dile amablemente que no puedes ayudarle con eso.
-Responde siempre en español.`;
+const SYSTEM_PROMPT = context ;
 
 export default function Chat() {
   const [messages, setMessages] = useState([
-    { role: 'bot', message: '¡Hola! Soy Vilma, tu asistente virtual. ¿En qué puedo ayudarte?' },
+    { role: 'bot', message: '¡Hola! Soy Amliv, estoy para ayudarte con todo lo que necesites saber sobre Riova o el rio Caimito' },
   ]);
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
@@ -36,7 +34,7 @@ export default function Chat() {
           model: 'llama-3.3-70b-versatile',
           messages: [
             { role: 'system', content: SYSTEM_PROMPT },
-            ...[...messages, userMsg].map((m) => ({  // ✅ corregido
+            ...[...messages, userMsg].map((m) => ({  
               role: m.role === 'user' ? 'user' : 'assistant',
               content: m.message,
             })),
