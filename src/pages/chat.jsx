@@ -56,7 +56,7 @@ export default function Chat() {
     <div className="min-h-screen flex flex-col text-gray-900">
       <Navbar />
       <main className="flex-1 flex flex-col max-w-2xl w-full mx-auto px-4 py-6">
-        <h1 className="text-2xl font-bold text-[#2c3e2d] mb-4">Chat con Vilma</h1>
+        <h1 className="text-2xl font-bold text-[#2c3e2d] mb-4">Chat con RioBot</h1>
 
         <div className="flex-1 overflow-y-auto space-y-3 mb-4 max-h-[65vh] border border-gray-200 rounded-2xl p-4 bg-white">
           {messages.map((msg, i) => (
