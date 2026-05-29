@@ -9,7 +9,7 @@ const SYSTEM_PROMPT = context ;
 
 export default function Chat() {
   const [messages, setMessages] = useState([
-    { role: 'bot', message: '¡Hola! Soy Amliv, estoy para ayudarte con todo lo que necesites saber sobre Riova o el rio Caimito' },
+    { role: 'bot', message: '¡Hola! Soy RioBot, estoy para ayudarte con todo lo que necesites saber sobre Riova o el rio Caimito' },
   ]);
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
