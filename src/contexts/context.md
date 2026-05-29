@@ -24,7 +24,7 @@ P4. ¿Quiénes lideraron el proyecto?
 El coordinador general fue Ian Del Cid. El equipo también incluyó a: Adriana Hidalgo C. (Coord.
 Institucional), Alberto González (Coord. de Operaciones y Logística), Dayrelis Ortega (Coord.
 Pedagógica), Gissel Ariza (Coord. de Redes Sociales), Vilma De León (Coord. de Presupuesto y
-Administrativa), y asistentes de redes e institucionales.
+Administrativa), y avid wood, jazmin hurtado(asistentes de redes e institucionales).
  El Problema y su Contexto
 P5. ¿Cuál fue el problema que quiso resolver RIOVA?
 RIOVA buscó solucionar la inadecuada disposición de residuos sólidos en Mastranto Rural. La basura
